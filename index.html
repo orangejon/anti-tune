@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anti-Tune</title>
+  </head>
+  <body>
+    <main>
+      <h1>Anti-Tune</h1>
+      <p class="sub">Pitch de-correction for ear training. <strong>Headphones required.</strong></p>
+
+      <section class="row">
+        <button id="start-btn">Start</button>
+        <button id="stop-btn" disabled>Stop</button>
+      </section>
+
+      <section class="panel">
+        <label>
+          De-correction amount: <span id="amount-val">100</span>%
+          <input id="amount" type="range" min="0" max="200" value="100" step="1" />
+        </label>
+
+        <label>
+          Scale:
+          <select id="scale">
+            <option value="chromatic">Chromatic</option>
+            <option value="major">Major (C)</option>
+            <option value="minor">Minor (A)</option>
+          </select>
+        </label>
+
+        <label class="inline">
+          <input id="bypass" type="checkbox" /> Bypass (dry)
+        </label>
+      </section>
+
+      <section class="display">
+        <div class="note" id="note-display">—</div>
+        <div class="meter">
+          <div class="meter-track">
+            <div class="meter-tick center"></div>
+            <div class="meter-needle" id="meter-needle"></div>
+          </div>
+          <div class="cents" id="cents-display">0¢</div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Reference tone</h2>
+        <div class="row">
+          <label>
+            Note:
+            <select id="ref-note"></select>
+          </label>
+          <button id="ref-randomize">Randomize</button>
+          <button id="ref-play">Play tone</button>
+        </div>
+      </section>
+
+      <p id="status" class="status"></p>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
