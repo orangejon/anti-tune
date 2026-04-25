@@ -24,10 +24,14 @@ function getSynth() {
   return synth;
 }
 
-export async function playReference(midi, durationSec = 2) {
+export async function playReference(midi) {
   await Tone.start();
   const freq = midiToFreq(midi);
-  getSynth().triggerAttackRelease(freq, durationSec);
+  getSynth().triggerAttack(freq);
+}
+
+export function stopReference() {
+  getSynth().triggerRelease();
 }
 
 export function randomMidi(min = 55, max = 79) {
